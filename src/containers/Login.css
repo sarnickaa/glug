@@ -1,0 +1,11 @@
+.Login-form {
+    background-color: rgb(155, 20, 40);
+    color: white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 200px;
+    margin: 10px auto 10px auto;
+    padding: 20px;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
