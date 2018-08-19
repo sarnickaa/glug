@@ -8,6 +8,7 @@ export default class Home extends Component {
         <div className="lander">
           <h1>GLUG</h1>
           <p>wine tracker</p>
+          {/* eventually have hero image? */}
         </div>
       </div>
     );

@@ -36,9 +36,7 @@ export default class Register extends Component {
     axios.post('http://localhost:4741/sign-up', { email, password, password_confirmation })
       .then((result) => {
         console.log(result)
-        // how do i redirect to /login on success here?
         this.props.history.push('/sign-in')
-        // this.show
       })
       .catch((error) => {
         console.error(error)

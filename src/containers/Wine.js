@@ -1,18 +1,19 @@
 import React from 'react';
-// import './Wine.css'
+import './Wine.css'
 
 const Wine = props => {
   return (
     <div className="Wine-div">
       <div className="Wine-header">
-        <span className="Wine-name">{props.name}</span>
-        <span className="Wine-year">{props.year}</span>
-        <span className="Wine-varietal">{props.varietal}</span>
-        <span className="Wine-gift">{props.gift}</span>
-        <span className="Wine-price">{props.price}</span>
-        <span className="Wine-score">{props.score}</span>
+        <div className="Wine-name">ID: {props._id}</div>
+        <div className="Wine-name">name: {props.name}</div>
+        <div className="Wine-year">year: {props.year}</div>
+        <div className="Wine-varietal">varietal: {props.varietal}</div>
+        <div className="Wine-gift">gift?: {props.gift}</div>
+        <div className="Wine-price">price: ${props.price}</div>
+        <div className="Wine-score">score: {props.score}/10</div>
       </div>
-      <p className="Wine-text">{props.comments}</p>
+      <div className="Wine-text">{props.comments}</div>
     </div>
   )
 }
