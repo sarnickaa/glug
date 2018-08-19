@@ -6,17 +6,6 @@ import axios from 'axios'
 
 class App extends Component {
 
-//   constructor(props) {
-//     super(props)
-//     this.state = {
-//       wines: []
-//     }
-//   }
-//
-// componentDidMount() {
-//
-// }
-
   render() {
     return (
       <div className="App container">

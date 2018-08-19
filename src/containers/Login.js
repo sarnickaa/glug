@@ -37,6 +37,7 @@ export default class Login extends Component {
         console.log(result.data.user.token)
         console.log(localStorage.getItem('token'))
         // TODO some sort of logic rerouting user to 'main' page
+        this.props.history.push('/main')
       })
       .catch((error) => {
         console.error(error)

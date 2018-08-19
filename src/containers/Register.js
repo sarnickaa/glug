@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+// import Modal, {closeStyle} from 'simple-react-modal'
 import "./Register.css";
 
 export default class Register extends Component {
@@ -12,6 +13,14 @@ export default class Register extends Component {
       password_confirmation: ''
     }
   }
+
+  // show(){
+  //   this.setState({show: true})
+  // }
+  //
+  // close(){
+  //   this.setState({show: false})
+  // }
 
   onChange = (e) => {
     const state = this.state
@@ -29,6 +38,7 @@ export default class Register extends Component {
         console.log(result)
         // how do i redirect to /login on success here?
         this.props.history.push('/sign-in')
+        // this.show
       })
       .catch((error) => {
         console.error(error)
@@ -51,20 +61,21 @@ export default class Register extends Component {
           <br />
             <button type="submit">Register</button>
         </form>
+
+          {/* <Modal
+            className="test-class"
+            style={{background: 'red'}}
+            containerStyle={{background: 'blue'}}
+            containerClassName="test"
+            closeOnOuterClick={true}
+            show={this.state.show}
+            onClose={this.close.bind(this)}>
+
+              <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
+                <div>hey</div>
+        </Modal> */}
+
       </div>
     );
   }
 }
-
-// const TweetForm = props => {
-//
-//   const tweetSubmit = e => {
-//     // e = event = the submission of the form
-//     e.preventDefault()
-//     const message = e.target.querySelector('textarea').value
-//     // e.target = targeting the element that caused the e event
-//     props.addTweet(message)
-//     // props because the addTweet method was passed as a prop to the TweetForm component
-//     console.log(message)
-//     // logic to add tweet to list of tweets
-//   }
