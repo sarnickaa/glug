@@ -6,9 +6,8 @@ import { Route, Switch } from "react-router-dom";
 
 export default class Login extends Component {
 
-  constructor(props) {
-    console.log(props)
-    super(props)
+  constructor() {
+    super()
     this.state = {
       email: '',
       password: '',
@@ -45,8 +44,11 @@ export default class Login extends Component {
         // localStorage.setItem('token', result.data.user.token)
         console.log(result.data.user.token)
         // console.log(localStorage.getItem('token'))
-        // this.props.history.push('/main')
-        // <Main />
+        this.props.history.push({
+          pathname: '/main',
+          state: { token: this.state.token }
+        })
+      // https://stackoverflow.com/questions/44121069/how-to-pass-params-with-history-push-in-react-router-v4
       })
       .catch((error) => {
         console.error(error)
@@ -67,8 +69,6 @@ export default class Login extends Component {
           <br />
             <button type="submit">Log In</button>
         </form>
-        {this.state && this.state.token &&
-        <Main />}
       </div>
     );
   }

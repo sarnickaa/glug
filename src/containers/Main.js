@@ -7,6 +7,7 @@ import axios from 'axios';
 export default class Main extends Component {
 
   constructor(props) {
+    console.log(props)
     super(props)
     this.state = {
       wines: []
@@ -19,7 +20,9 @@ componentDidMount () {
   // push wine data into wines array in state object
 
   // get token from local store:
-  const token = localStorage.getItem('token')
+  const token = this.props.location.state.token
+
+  // set token as state on component at this point?
 
   // check token
   console.log(token)
@@ -42,10 +45,28 @@ axios.get('http://localhost:4741/wines', { headers: {
 
 }
 
+// userLogout = (e) => {
+//   axios.delete('http://localhost:4741/sign-out', { headers: {
+//     Authorization: `Bearer ${token}` } })
+//       .then((result) => {
+//         console.log(result)
+//         console.log('user logged out')
+//         this.props.history.push({
+//           pathname: '/'
+//         })
+//       })
+//       .catch((error) => {
+//         console.log(error)
+//       })
+// }
+
+
+
 
   render() {
     return (
       <div>
+      <button type="submit" onClick={this.userLogout}>LOGOUT</button>
       <ChangePWForm />
       <AddWineForm />
       <WineList wines={this.state.wines}/>

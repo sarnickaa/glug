@@ -7,29 +7,29 @@ import Login from "./containers/Login";
 // import axios from 'axios'
 
 class App extends Component {
-  constructor(props) {
-    super()
-    this.state = {
-      authInfo: {}
-    }
-    this.setLoginInfo = this.setLoginInfo.bind(this)
-  }
+  // constructor(props) {
+  //   super()
+  //   this.state = {
+  //     authInfo: {}
+  //   }
+  //   this.setLoginInfo = this.setLoginInfo.bind(this)
+  // }
 
-  setLoginInfo(authData) {
-    this.setState({
-      authInfo: authData
-    })
-  }
+  // setLoginInfo(authData) {
+  //   this.setState({
+  //     authInfo: authData
+  //   })
+  // }
 
   render() {
 
-    const WrappedLogin = () => <Login setLoginInfo={this.state.setLoginInfo} />
+    // const WrappedLogin = () => <Login setLoginInfo={this.state.setLoginInfo} />
 
     return (
       <div className="App container">
             <nav>
               <Link to="/" className="links" id="home-link">HOME</Link>
-              <Link to="/" className="links nav">logout</Link>
+              {/* <Link to="/" className="links nav">logout</Link> */}
               {/* logout success should reroute user back to home page */}
 
               <Link to="/sign-up" className="links nav">register</Link>
@@ -39,7 +39,7 @@ class App extends Component {
               {/* mount Login user component */}
             </nav>
         {/* <Routes> */}
-          <Route path='/sign-in' exact component={WrappedLogin} />
+          {/* <Route path='/sign-in' exact component={WrappedLogin} /> */}
         {/* </Routes> */}
         <Routes />
         {/* load routes */}
