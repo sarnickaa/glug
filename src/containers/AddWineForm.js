@@ -3,14 +3,33 @@ import axios from 'axios';
 // import Modal, {closeStyle} from 'simple-react-modal'
 import "./AddWineForm.css";
 
-// export default class AddWineForm extends Component {
-const AddWineForm = props => {
+export default class AddWineForm extends Component {
 
-  // render() {
+  constructor(props) {
+    console.log(props)
+    super(props)
+    // this.state = {
+    //   wines: props.wines
+    // }
+  }
+  // static getDerivedStateFromProps(props, state) {
+  //   console.log(props.wines)
+  // }
 
+// event handler for form submit
+handleAddWine = e => {
+  e.preventDefault()
+  const data = new FormData(e.target)
+  console.log(data)
+  for(let pair of data.entries()) {
+     console.log(pair[0]+ ', '+ pair[1]);
+  }
+}
+
+  render() {
     return (
     <div>
-      <form className="AddWine-form">
+      <form className="AddWine-form" onSubmit={this.handleAddWine}>
       <div id="label">
         <label>Add Wine</label>
         <br />
@@ -46,7 +65,8 @@ const AddWineForm = props => {
         </form>
       </div>
     );
-  // }
-}
+    }
+  }
 
-export default AddWineForm
+
+// export default AddWineForm
