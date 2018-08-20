@@ -4,8 +4,9 @@ import "./Login.css";
 
 export default class Login extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    console.log(props)
+    super(props)
     this.state = {
       email: '',
       password: ''
@@ -33,9 +34,10 @@ export default class Login extends Component {
     axios.post('http://localhost:4741/sign-in', { email, password })
       .then((result) => {
         console.log(result)
-        localStorage.setItem('token', result.data.user.token)
+        this.props.setLoginInfo(result.data.user.token)
+        // localStorage.setItem('token', result.data.user.token)
         console.log(result.data.user.token)
-        console.log(localStorage.getItem('token'))
+        // console.log(localStorage.getItem('token'))
         this.props.history.push('/main')
       })
       .catch((error) => {

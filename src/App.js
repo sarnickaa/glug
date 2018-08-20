@@ -1,12 +1,30 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import './App.css';
 import Routes from "./Routes";
+import Login from "./containers/Login";
 // import axios from 'axios'
 
 class App extends Component {
+  constructor(props) {
+    super()
+    this.state = {
+      authInfo: {}
+    }
+    this.setLoginInfo = this.setLoginInfo.bind(this)
+  }
+
+  setLoginInfo(authData) {
+    this.setState({
+      authInfo: authData
+    })
+  }
 
   render() {
+
+    const WrappedLogin = () => <Login setLoginInfo={this.state.setLoginInfo} />
+
     return (
       <div className="App container">
             <nav>
@@ -20,6 +38,9 @@ class App extends Component {
               <Link to="/sign-in" className="links nav">login</Link>
               {/* mount Login user component */}
             </nav>
+        {/* <Routes> */}
+          <Route path='/sign-in' exact component={WrappedLogin} />
+        {/* </Routes> */}
         <Routes />
         {/* load routes */}
       </div>
