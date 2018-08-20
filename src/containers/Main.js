@@ -16,13 +16,9 @@ export default class Main extends Component {
 
 
 componentDidMount () {
-  // get wine data for signed in user? axios GET & populate wines array
-  // push wine data into wines array in state object
-
-  // get token from local store:
+  // get wine data for signed in user: populate wines array
+  // push wine data into wines array in state
   const token = this.props.location.state.token
-
-  // set token as state on component at this point?
 
   // check token
   console.log(token)
