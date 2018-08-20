@@ -42,26 +42,22 @@ axios.get('http://localhost:4741/wines', { headers: {
   .catch((error) => {
     console.log(error)
   })
-
 }
 
-// userLogout = (e) => {
-//   axios.delete('http://localhost:4741/sign-out', { headers: {
-//     Authorization: `Bearer ${token}` } })
-//       .then((result) => {
-//         console.log(result)
-//         console.log('user logged out')
-//         this.props.history.push({
-//           pathname: '/'
-//         })
-//       })
-//       .catch((error) => {
-//         console.log(error)
-//       })
-// }
-
-
-
+userLogout = (e) => {
+  axios.delete('http://localhost:4741/sign-out', { headers: {
+    Authorization: `Bearer ${this.props.location.state.token}` } })
+      .then((result) => {
+        console.log(result)
+        console.log('user logged out')
+        this.props.history.push({
+          pathname: '/'
+        })
+      })
+      .catch((error) => {
+        console.log(error)
+      })
+}
 
   render() {
     return (
