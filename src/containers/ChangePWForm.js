@@ -5,16 +5,62 @@ import "./ChangePWForm.css";
 
 export default class ChangePWForm extends Component {
 
-  render() {
+  constructor(props) {
+    super()
+    console.log(props)
+    console.log(props.token)
+    this.state = {
+      oldp: '',
+      newp: '',
+      token: props.token
+    }
+    // this.userChangePW = this.userChangePW.bind(this)
+  }
 
+
+  onChange = (e) => {
+    const state = this.state
+    state[e.target.name] = e.target.value
+    this.setState(state)
+  }
+
+// form submission: sends the current state as the params for signup
+// submission button fires off axios call
+
+  onSubmit = (e) => {
+    e.preventDefault()
+    const { oldp, newp } = this.state;
+    console.log(this.state)
+    this.userChangePW()
+  }
+
+  userChangePW = (e) => {
+    console.log(this.state.token)
+    const { oldp, newp } = this.state
+    console.log(oldp)
+    console.log(newp)
+    axios.patch('http://localhost:4741/change-password', { oldp, newp }, { headers: {
+      Authorization: `Bearer ${this.state.token}` } })
+        .then((result) => {
+          console.log(result)
+          console.log('user changed password')
+
+          })
+        .catch((error) => {
+          console.log(error)
+        })
+  }
+
+  render() {
+    const { oldp, newp } = this.state;
     return (
     <div>
-      <form className="ChangePW-form">
+      <form className="ChangePW-form" onSubmit={this.onSubmit}>
         <label>Change User Password</label>
         <br />
-          <input type="email" placeholder="your email" name="email"></input>
+          <input type="text" placeholder="old password" name="oldp" value={oldp} onChange={this.onChange}></input>
           <br />
-          <input type="email" placeholder="your email" name="email"></input>
+          <input type="text" placeholder="new password" name="newp" value={newp} onChange={this.onChange}></input>
           <br />
             <button type="submit">Change Password</button>
         </form>

@@ -63,7 +63,7 @@ userLogout = (e) => {
     return (
       <div>
       <button type="submit" onClick={this.userLogout}>LOGOUT</button>
-      <ChangePWForm />
+      <ChangePWForm token={this.props.location.state.token}/>
       <AddWineForm />
       <WineList wines={this.state.wines}/>
       </div>
