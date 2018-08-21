@@ -19,6 +19,8 @@ export default class Main extends Component {
 componentDidMount () {
   // get wine data for signed in user: populate wines array
   // push wine data into wines array in state
+
+  //ramda https://ramdajs.com/docs/#sort
   const token = this.props.location.state.token
 
   // check token
@@ -56,10 +58,10 @@ userLogout = (e) => {
       })
 }
 
-addWine(text) {
-  const wine = {
-    text
-  }
+addWine(wine) {
+  // const wine =
+  //   text
+
   this.setState(prevState => {
     let nextState = Object.assign({}, prevState)
     nextState.wines.unshift(wine)

@@ -60,20 +60,20 @@ handleAddWine = e => {
         <div className="divide">
           {/* <input type="text" placeholder="id" name="id"></input> */}
           <br />
-          <input type="text" id="name" placeholder="name" name="name"></input>
+          <input type="text" id="name" placeholder="wine name (required)" name="name"></input>
           <br />
-          <input type="text" id="varietal" placeholder="varietal" name="varietal"></input>
+          <input type="text" id="varietal" placeholder="varietal (required)" name="varietal"></input>
           <br />
           </div>
 
           <div className="divide">
-          <input type="text" id="year" placeholder="year" name="year"></input>
+          <input type="text" id="year" placeholder="vintage (required)" name="year"></input>
           <br />
-          <input type="text" id="gift" placeholder="gift?" name="gift"></input>
+          <input type="text" id="gift" placeholder="was this a gift?" name="gift"></input>
           <br />
           <input type="text" id="price" placeholder="price" name="price"></input>
           <br />
-          <input type="text"  id="score" placeholder="score" name="score"></input>
+          <input type="text"  id="score" placeholder="score /10" name="score"></input>
           <br />
           </div>
           <input type="textarea" id="comments" maxLength="140" placeholder="comments" name="comments"></input>

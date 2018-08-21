@@ -25,6 +25,16 @@ class App extends Component {
 
     // const WrappedLogin = () => <Login setLoginInfo={this.state.setLoginInfo} />
 
+    // declare variable
+    // set variable based on condition - depending on state
+    // state changes depending on what place
+
+    // let registerlink
+    //
+    // if (!this.state.isOnPage) {
+    //   registerLink (<ComponentToRender />)
+    // } - put into render function to conditinally render component
+
     return (
       <div className="App container">
             <nav>
