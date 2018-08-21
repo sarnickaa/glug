@@ -7,7 +7,7 @@ const WineList = props => {
   const Wines = props.wines.map((wineData, index) => {
 //wine(props) = array of objects
     return (
-      <Wine key={index} {...wineData} />
+      <Wine setCurrentFormWineID={props.setCurrentFormWineID} token={props.token} wineRequest={props.wineRequest} key={index} {...wineData} />
       )
   })
 

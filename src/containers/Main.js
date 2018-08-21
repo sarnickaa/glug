@@ -1,8 +1,10 @@
 import React, { Component } from "react";
-import ChangePWForm from './ChangePWForm.js'
-import AddWineForm from './AddWineForm.js'
-import WineList from './WineList.js'
 import axios from 'axios';
+
+import ChangePWForm from './ChangePWForm.js'
+import WineForm from './WineForm.js'
+import WineList from './WineList.js'
+
 
 export default class Main extends Component {
 
@@ -10,42 +12,62 @@ export default class Main extends Component {
     console.log(props)
     super(props)
     this.state = {
-      wines: []
+      token: null,
+      wines: [],
+      currentFormWineID: null
     }
-    this.addWine = this.addWine.bind(this)
+    // this.addWine = this.addWine.bind(this)
+  }
+
+  setCurrentFormWineID = (id) => {
+    this.setState({currentFormWineID: id})
+  }
+
+  getAllWines = () => {
+    axios.get('http://localhost:4741/wines', {
+      headers: {
+        Authorization: `Bearer ${this.state.token}`
+      }
+    })
+      .then((result) => {
+        console.log(result)
+        // check result
+
+        this.setState({ wines: result.data.wines })
+        // setState with result of axios call
+
+        console.log(this.state.wines)
+        // check updates state
+      })
+      .catch((error) => {
+        console.log(error)
+      })
   }
 
 
-componentDidMount () {
-  // get wine data for signed in user: populate wines array
-  // push wine data into wines array in state
 
-  //ramda https://ramdajs.com/docs/#sort
-  const token = this.props.location.state.token
+  componentDidMount() {
+    // get wine data for signed in user: populate wines array
+    // push wine data into wines array in state
 
-  // check token
-  console.log(token)
+    //ramda https://ramdajs.com/docs/#sort
+    const token = this.props.location.state.token
+    this.setState({token}, this.getAllWines)
 
-axios.get('http://localhost:4741/wines', { headers: {
-  Authorization: `Bearer ${token}` } })
-  .then((result) => {
-    console.log(result)
-    // check result
+    // // check token
+    // console.log(token)
+    //
+    // this.getAllWines(token)
+  }
 
-    this.setState( { wines: result.data.wines } )
-    // setState with result of axios call
 
-    console.log(this.state.wines)
-    // check updates state
-  })
-  .catch((error) => {
-    console.log(error)
-  })
-}
 
-userLogout = (e) => {
-  axios.delete('http://localhost:4741/sign-out', { headers: {
-    Authorization: `Bearer ${this.props.location.state.token}` } })
+  userLogout = (e) => {
+    axios.delete('http://localhost:4741/sign-out', {
+      headers: {
+        Authorization: `Bearer ${this.props.location.state.token}`
+      }
+    })
       .then((result) => {
         console.log(result)
         console.log('user logged out')
@@ -56,27 +78,46 @@ userLogout = (e) => {
       .catch((error) => {
         console.log(error)
       })
-}
+  }
 
-addWine(wine) {
-  // const wine =
-  //   text
-
-  this.setState(prevState => {
-    let nextState = Object.assign({}, prevState)
-    nextState.wines.unshift(wine)
-    return nextState
-  })
-}
-
+  // addWine(wine) {
+  //   // const wine =
+  //   //   text
+  //
+  //   this.setState(prevState => {
+  //     let nextState = Object.assign({}, prevState)
+  //     nextState.wines.unshift(wine)
+  //     return nextState
+  //   })
+  // }
+  //
+  // patchWine(wine) {
+  //   console.log(wine)
+  // }
 
   render() {
     return (
       <div>
-      <button type="submit" onClick={this.userLogout}>LOGOUT</button>
-      <ChangePWForm token={this.props.location.state.token}/>
-      <AddWineForm wines={this.state.wines} addWine={this.addWine} token={this.props.location.state.token}/>
-      <WineList wines={this.state.wines}/>
+        <button type="submit" onClick={this.userLogout}>LOGOUT</button>
+        <ChangePWForm token={this.props.location.state.token} />
+        {this.state.currentFormWineID
+          ? <WineForm action="Update"
+            setCurrentFormWineID={this.setCurrentFormWineID}
+            currentFormWineID={this.state.currentFormWineID}
+            wines={this.state.wines}
+            wineRequest={this.getAllWines}
+            token={this.state.token} />
+          : <WineForm action="Add"
+            setCurrentFormWineID={this.setCurrentFormWineID}
+            currentFormWineID={this.state.currentFormWineID}
+            wines={this.state.wines}
+            wineRequest={this.getAllWines}
+            token={this.state.token} />
+        }
+        <WineList wines={this.state.wines}
+                  setCurrentFormWineID={this.setCurrentFormWineID}
+                  token={this.state.token}
+                  wineRequest={this.getAllWines} />
       </div>
     )
   }

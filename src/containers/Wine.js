@@ -4,25 +4,26 @@ import './Wine.css'
 
 const Wine = props => {
 
-  // const handleDeleteWine = e => {
-  //   e.preventDefault()
-  //
-  //   const data = props.id
-  //
-  //   axios.delete('http://localhost:4741/wines',  data, { headers: {
-  //     Authorization: `Bearer ${this.props.token}` } })
-  //     // console.log(data)
-  //     .then((result) => {
-  //       console.log(result)
-  //       console.log('wine added')
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  //
-  //     this.props.addWine(data.wine)
-  //     console.log(data.wine)
-  // }
+  const clickUpdateHandler = e => {
+    props.setCurrentFormWineID(props._id)
+  }
+
+  const handleDeleteWine = e => {
+    e.preventDefault()
+
+    axios.delete(`http://localhost:4741/wines/${props._id}`, { headers: {
+      Authorization: `Bearer ${props.token}` } })
+      // console.log(data)
+      .then((result) => {
+        console.log(result)
+        console.log('wine deleted')
+      })
+      .then(props.wineRequest)
+      .catch((error) => {
+        console.log(error)
+      })
+
+  }
 
   return (
     <div className="Wine-div">
@@ -34,7 +35,8 @@ const Wine = props => {
         <div className="Wine-gift">gift?: {props.gift}</div>
         <div className="Wine-price">price: ${props.price}</div>
         <div className="Wine-score">score: {props.score}/10</div>
-        <button type="submit" id="delete-wine-button">Delete</button>
+        <button type="submit" id="delete-wine-button" onClick={handleDeleteWine}>Delete</button>
+        <button type="submit" id="delete-wine-button" onClick={clickUpdateHandler}>Update</button>
       </div>
       <div className="Wine-text">{props.comments}</div>
 

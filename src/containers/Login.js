@@ -1,8 +1,10 @@
 import React, { Component } from "react";
+import { Route, Switch } from "react-router-dom";
 import axios from 'axios';
+
 import "./Login.css";
 import Main from './Main.js'
-import { Route, Switch } from "react-router-dom";
+
 
 export default class Login extends Component {
 
@@ -24,13 +26,10 @@ export default class Login extends Component {
 
 // form submission: sends the current state as the params for signup
 // submission button fires off axios call
-
   onSubmit = (e) => {
     e.preventDefault()
     const { email, password } = this.state;
     console.log(this.state)
-
-
 
 
     axios.post('http://localhost:4741/sign-in', { email, password })
