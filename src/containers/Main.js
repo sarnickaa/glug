@@ -12,6 +12,7 @@ export default class Main extends Component {
     this.state = {
       wines: []
     }
+    this.addWine = this.addWine.bind(this)
   }
 
 
@@ -55,17 +56,26 @@ userLogout = (e) => {
       })
 }
 
+addWine(text) {
+  const wine = {
+    text
+  }
+  this.setState(prevState => {
+    let nextState = Object.assign({}, prevState)
+    nextState.wines.unshift(wine)
+    return nextState
+  })
+}
+
 
   render() {
     return (
       <div>
       <button type="submit" onClick={this.userLogout}>LOGOUT</button>
       <ChangePWForm token={this.props.location.state.token}/>
-      <AddWineForm wines={this.state.wines}/>
+      <AddWineForm wines={this.state.wines} addWine={this.addWine} token={this.props.location.state.token}/>
       <WineList wines={this.state.wines}/>
       </div>
     )
-      // wineList - pass props wine = this.state.wines
-
   }
 }
