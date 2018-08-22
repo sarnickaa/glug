@@ -50,7 +50,7 @@ export default class Main extends Component {
 
 
 
-  componentDidMount() {
+  componentDidMount(props) {
     // get wine data for signed in user: populate wines array
     // push wine data into wines array in state
 
@@ -58,7 +58,7 @@ export default class Main extends Component {
     const token = this.props.location.state.token
     this.setState({token}, this.getAllWines)
 
-    // this.props.setViewLinkState()
+    this.props.setViewLinkState()
 
     // // check token
     // console.log(token)
@@ -77,6 +77,7 @@ export default class Main extends Component {
       .then((result) => {
         console.log(result)
         console.log('user logged out')
+        this.props.setViewLinkState('view')
         this.props.history.push({
           pathname: '/'
         })

@@ -15,8 +15,8 @@ class App extends Component {
     }
   }
 
-  setViewLinkState = () => {
-    this.setState({viewLink: null})
+  setViewLinkState = (newState) => {
+    this.setState({viewLink: newState})
   }
 
   render() {
@@ -30,6 +30,15 @@ class App extends Component {
               <Link to="/sign-up" className="links nav">register</Link>
               {/* mount Register User component */}
 
+
+              {/* <Link to={{
+                pathname: "/sign-in",
+                state: {
+                  viewLink: this.state.viewLink,
+                  setViewLinkState: this.setViewLinkState
+                }
+              }} className="links nav">login</Link> */}
+
               <Link to="/sign-in" className="links nav">login</Link>
               {/* mount Login user component */}
             </nav>
@@ -41,7 +50,7 @@ class App extends Component {
     return (
       <div className="App container">
             <nav>
-              <Link to="/" className="links" id="home-link">HOME</Link>
+              {/* <Link to="/" className="links" id="home-link">HOME</Link> */}
               {/* logout success should reroute user back to home page */}
 
               {/* <Link to="/sign-up" className="links nav">register</Link> */}

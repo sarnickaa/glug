@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from 'axios';
 // import Modal, {closeStyle} from 'simple-react-modal'
 import "./Register.css";
+import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import MyModal from "./MyModal.js"
 
 export default class Register extends Component {
 
@@ -22,6 +24,10 @@ export default class Register extends Component {
   //   this.setState({show: false})
   // }
 
+  openModal(text, data) {
+        ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
+     }
+
   onChange = (e) => {
     const state = this.state
     state[e.target.name] = e.target.value
@@ -38,6 +44,7 @@ export default class Register extends Component {
         console.log(result)
         this.props.history.push('/sign-in')
       })
+      .catch(this.openModal.bind(null, "Oops! check your email or password!"))
       .catch((error) => {
         console.error(error)
       })

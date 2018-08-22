@@ -4,7 +4,14 @@
 
 .links {
   text-decoration: none;
-  padding: 5px;
+  padding: 10px;
+  background: #e4bcc1;
+  color: whitesmoke;
+  margin: 5px;
+}
+
+.links:hover {
+  background: #a84551;
 }
 
 .nav {

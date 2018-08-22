@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from 'axios';
+import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import MyModal from "./MyModal.js"
 
 import "./Login.css";
 import Main from './Main.js'
@@ -16,6 +18,10 @@ export default class Login extends Component {
       token: ''
     }
   }
+
+  openModal(text, data) {
+        ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
+     }
 
 // like get-form-fields: captures user input and sets it as components state
   onChange = (e) => {
@@ -49,6 +55,7 @@ export default class Login extends Component {
         })
       // https://stackoverflow.com/questions/44121069/how-to-pass-params-with-history-push-in-react-router-v4
       })
+      .catch(this.openModal.bind(null, "Oops! check your email or password!"))
       .catch((error) => {
         console.error(error)
       })

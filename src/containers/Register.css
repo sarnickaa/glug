@@ -15,3 +15,7 @@
   color: #843640;
   font-size: 16px;
 }
+
+label {
+  text-align: center;
+}
