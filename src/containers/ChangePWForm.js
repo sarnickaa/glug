@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import axios from 'axios';
 // import Modal, {closeStyle} from 'simple-react-modal'
 import "./ChangePWForm.css";
+import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import MyModal from "./MyModal.js"
 
 export default class ChangePWForm extends Component {
 
@@ -17,6 +19,10 @@ export default class ChangePWForm extends Component {
     // this.userChangePW = this.userChangePW.bind(this)
   }
 
+
+  openModal(text, data) {
+        ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
+     }
 
   onChange = (e) => {
     const state = this.state
@@ -54,10 +60,12 @@ export default class ChangePWForm extends Component {
           console.log('user changed password')
           })
         .then(this.clearControlledFields)
-        .catch((error) => {
-          console.log(error)
-        })
+        .then(this.openModal.bind(null, "Success! Password Changed!"))
+        .catch(this.openModal.bind(null, "Oh No! Try Again"))
+        .then(this.clearControlledFields)
   }
+// https://stackoverflow.com/questions/32912459/promises-pass-additional-parameters-to-then-chain
+
 
   render() {
     const { oldp, newp } = this.state;

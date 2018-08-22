@@ -19,9 +19,9 @@ export default class Main extends Component {
     // this.addWine = this.addWine.bind(this)
   }
 
-  clearFormFields = (elemId) => {
-    document.getElementById(elemId).reset();
-  }
+  // clearFormFields = (elemId) => {
+  //   document.getElementById(elemId).reset();
+  // }
 
   setCurrentFormWineID = (id) => {
     this.setState({currentFormWineID: id})
@@ -111,15 +111,13 @@ export default class Main extends Component {
             currentFormWineID={this.state.currentFormWineID}
             wines={this.state.wines}
             wineRequest={this.getAllWines}
-            token={this.state.token}
-            cancelCourse={this.clearFormFields} />
+            token={this.state.token} />
           : <WineForm action="Add"
             setCurrentFormWineID={this.setCurrentFormWineID}
             currentFormWineID={this.state.currentFormWineID}
             wines={this.state.wines}
             wineRequest={this.getAllWines}
-            token={this.state.token}
-            cancelCourse={this.clearFormFields}/>
+            token={this.state.token} />
         }
         <WineList wines={this.state.wines}
                   setCurrentFormWineID={this.setCurrentFormWineID}
