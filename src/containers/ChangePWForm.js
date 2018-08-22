@@ -34,6 +34,14 @@ export default class ChangePWForm extends Component {
     this.userChangePW()
   }
 
+  clearControlledFields = () => {
+    this.setState({
+      oldp: "",
+      newp: ""
+    })
+  }
+  // https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields/43922523
+
   userChangePW = (e) => {
     console.log(this.state.token)
     const { oldp, newp } = this.state
@@ -44,8 +52,8 @@ export default class ChangePWForm extends Component {
         .then((result) => {
           console.log(result)
           console.log('user changed password')
-
           })
+        .then(this.clearControlledFields)
         .catch((error) => {
           console.log(error)
         })
@@ -58,9 +66,9 @@ export default class ChangePWForm extends Component {
       <form className="ChangePW-form" onSubmit={this.onSubmit}>
         <label>Change User Password</label>
         <br />
-          <input type="text" placeholder="old password" name="oldp" value={oldp} onChange={this.onChange}></input>
+          <input type="password" placeholder="old password" name="oldp" value={this.state.oldp} onChange={this.onChange}></input>
           <br />
-          <input type="text" placeholder="new password" name="newp" value={newp} onChange={this.onChange}></input>
+          <input type="password" placeholder="new password" name="newp" value={this.state.newp} onChange={this.onChange}></input>
           <br />
             <button type="submit">Change Password</button>
         </form>

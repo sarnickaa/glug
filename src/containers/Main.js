@@ -19,6 +19,10 @@ export default class Main extends Component {
     // this.addWine = this.addWine.bind(this)
   }
 
+  clearFormFields = (elemId) => {
+    document.getElementById(elemId).reset();
+  }
+
   setCurrentFormWineID = (id) => {
     this.setState({currentFormWineID: id})
   }
@@ -99,20 +103,23 @@ export default class Main extends Component {
     return (
       <div>
         <button type="submit" onClick={this.userLogout}>LOGOUT</button>
-        <ChangePWForm token={this.props.location.state.token} />
+        <ChangePWForm token={this.props.location.state.token}
+                      cancelCourse={this.clearFormFields}/>
         {this.state.currentFormWineID
           ? <WineForm action="Update"
             setCurrentFormWineID={this.setCurrentFormWineID}
             currentFormWineID={this.state.currentFormWineID}
             wines={this.state.wines}
             wineRequest={this.getAllWines}
-            token={this.state.token} />
+            token={this.state.token}
+            cancelCourse={this.clearFormFields} />
           : <WineForm action="Add"
             setCurrentFormWineID={this.setCurrentFormWineID}
             currentFormWineID={this.state.currentFormWineID}
             wines={this.state.wines}
             wineRequest={this.getAllWines}
-            token={this.state.token} />
+            token={this.state.token}
+            cancelCourse={this.clearFormFields}/>
         }
         <WineList wines={this.state.wines}
                   setCurrentFormWineID={this.setCurrentFormWineID}

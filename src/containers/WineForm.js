@@ -15,9 +15,9 @@ export default class WineForm extends Component {
 
   // event handler for form submit
 
-  cancelCourse = () => {
-    document.getElementById("wine-input-form").reset();
-  }
+  // cancelCourse = () => {
+  //   document.getElementById("wine-input-form").reset();
+  // }
 
 
 
@@ -49,7 +49,7 @@ export default class WineForm extends Component {
           console.log('wine added')
         })
         .then(this.props.wineRequest)
-        .then(this.cancelCourse)
+        .then(this.props.clearFormFields("wine-input-form"))
         .catch((error) => {
           console.log(error)
         })
@@ -61,7 +61,7 @@ export default class WineForm extends Component {
           console.log(result)
           console.log('wine edited')
         })
-        .then(this.cancelCourse)
+        .then(this.props.clearFormFields("wine-input-form"))
         .then(this.props.wineRequest)
         .then(this.props.setCurrentFormWineID(null))
         .catch((error) => {
