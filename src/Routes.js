@@ -10,6 +10,7 @@ export default (props) =>
     <Route path="/" exact component={Home} />
     <Route path="/sign-up" exact component={Register} />
     <Route path="/sign-in" exact component={Login} />
-    {/* <Route path="/sign-in" render={(props) => <Login {...props} setLoginInfo={this.state.setLoginInfo} />} /> */}
+    {/* <Route path="/sign-in" render={(props) => <Login {...props} setViewLinkState={props.setViewLinkState} viewLinkState={props.viewLinkState} />} /> */}
     <Route path="/main" exact component={Main} />
+    {/* <Route path="/main" render={(props) => (<Main {...props} setViewLinkState={props.setViewLinkState} viewLinkState={props.vewLinkState} />)} /> */}
   </Switch>;

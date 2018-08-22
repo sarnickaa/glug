@@ -1,11 +1,41 @@
   .AddWine-form {
-    background-color: rgb(155, 20, 40);
+    background-color: #963e48;
     color: white;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: row;
-    width: 600px;
+    /* width: 600px; */
     margin: 10px auto 10px auto;
     padding: 20px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+label {
+  margin: 10px;
+  padding: 5px;
+}
+
+input {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+}
+
+textarea {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+}
+
+button {
+  margin: 10px;
+}
+
+label {
+  margin: 10px;
+  padding: 5px;
+}
+
+#wine-form-button {
+  padding: 15px 32px;
 }

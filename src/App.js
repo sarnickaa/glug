@@ -8,8 +8,19 @@ import Login from "./containers/Login";
 
 class App extends Component {
 
-  render() {
+  constructor(props) {
+    super(props)
+    this.state = {
+      viewLink: 'view'
+    }
+  }
 
+  setViewLinkState = () => {
+    this.setState({viewLink: null})
+  }
+
+  render() {
+    if(this.state.viewLink === 'view') {
     return (
       <div className="App container">
             <nav>
@@ -22,10 +33,28 @@ class App extends Component {
               <Link to="/sign-in" className="links nav">login</Link>
               {/* mount Login user component */}
             </nav>
-        <Routes />
+        <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
         {/* load routes */}
       </div>
     );
+  } else {
+    return (
+      <div className="App container">
+            <nav>
+              <Link to="/" className="links" id="home-link">HOME</Link>
+              {/* logout success should reroute user back to home page */}
+
+              {/* <Link to="/sign-up" className="links nav">register</Link> */}
+              {/* mount Register User component */}
+
+              {/* <Link to="/sign-in" className="links nav">login</Link> */}
+              {/* mount Login user component */}
+            </nav>
+        <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
+        {/* load routes */}
+      </div>
+    )
+  }
   }
 }
 

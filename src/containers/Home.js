@@ -1,13 +1,15 @@
 import React, { Component } from "react";
 import "./Home.css";
+import Logo from '../images/glug-logo.png'
 
 export default class Home extends Component {
+  
   render() {
     return (
       <div className="Home">
         <div className="lander">
-          <h1>GLUG</h1>
-          <p>wine tracker</p>
+          <img src={Logo} />
+          <h2>wineTracker</h2>
           {/* eventually have hero image? */}
         </div>
       </div>

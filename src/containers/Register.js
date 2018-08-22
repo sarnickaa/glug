@@ -57,7 +57,7 @@ export default class Register extends Component {
           <br />
           <input type="password" placeholder="confirm password" name="password_confirmation" value={password_confirmation} onChange={this.onChange}></input>
           <br />
-            <button type="submit">Register</button>
+            <button type="submit" id="register-button">Register</button>
         </form>
 
           {/* <Modal

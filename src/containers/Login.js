@@ -8,8 +8,8 @@ import Main from './Main.js'
 
 export default class Login extends Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       email: '',
       password: '',
@@ -66,7 +66,7 @@ export default class Login extends Component {
           <br />
           <input type="password" placeholder="password" name="password" value={password} onChange={this.onChange}></input>
           <br />
-            <button type="submit">Log In</button>
+            <button type="submit" id="login-button">Log In</button>
         </form>
       </div>
     );

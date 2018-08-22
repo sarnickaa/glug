@@ -58,6 +58,8 @@ export default class Main extends Component {
     const token = this.props.location.state.token
     this.setState({token}, this.getAllWines)
 
+    // this.props.setViewLinkState()
+
     // // check token
     // console.log(token)
     //

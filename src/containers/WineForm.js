@@ -114,16 +114,16 @@ export default class WineForm extends Component {
 
           <div className="divide">
             {/* <input type="text" placeholder="id" name="id"></input> */}
-            <br />
             <input type="text" id="name" placeholder="wine name (required)" name="name"></input>
             <br />
             <input type="text" id="varietal" placeholder="varietal (required)" name="varietal"></input>
             <br />
+            <input type="text" id="year" placeholder="vintage (required)" name="year"></input>
+            <br />
           </div>
 
           <div className="divide">
-            <input type="text" id="year" placeholder="vintage (required)" name="year"></input>
-            <br />
+
             <input type="text" id="gift" placeholder="was this a gift?" name="gift"></input>
             <br />
             <input type="text" id="price" placeholder="price" name="price"></input>
@@ -135,7 +135,7 @@ export default class WineForm extends Component {
           <br />
 
           <div className="divide">
-            <button type="submit">{this.props.action}</button>
+            <button type="submit" id="wine-form-button">{this.props.action}</button>
           </div>
         </form>
       </div>

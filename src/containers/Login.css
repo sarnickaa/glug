@@ -1,5 +1,5 @@
 .Login-form {
-    background-color: rgb(155, 20, 40);
+    background-color: #843640;
     color: white;
     display: flex;
     justify-content: center;
@@ -8,4 +8,10 @@
     margin: 10px auto 10px auto;
     padding: 20px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+#login-button {
+  background: #e4bcc1;
+  color: #843640;
+  font-size: 16px;
 }
