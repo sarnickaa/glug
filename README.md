@@ -3,17 +3,18 @@ GLUG: A Wine Tracker
 ====================
 
 * DEPLOYED:
-===========
-* API:
-* CLIENT:
+
+* API: https://glug-api.herokuapp.com/
+* CLIENT: https://sarnickaa.github.io/glug/
 
 * REPOSITORIES:
-===============
+
 * API: https://github.com/sarnickaa/glug-api
 * CLIENT: https://github.com/sarnickaa/glug
 
 ## DESCRIPTION:
-<glug screenshot>
+<img width="1280" alt="screen shot 2018-08-23 at 10 49 14 am" src="https://media.git.generalassemb.ly/user/11649/files/3f924fb8-a6c2-11e8-9f3d-9f1ed13c1439">
+
 GLUG is a simple wine preference tracker. A user can enter a record of a wine, detailing notable features such as a basic description of the wine itself (name/year/varietal are required fields), price, whether it was a gift or not, their personal score out of 10 and tasting notes. GLUG also showcases custom logo design.
 
 ## TECHNOLOGY:
@@ -33,7 +34,9 @@ a GLUG user can:
 
 ## PLANNING:
 
-* WIREFRAME:
+* WIREFRAME: ![img_4522](https://media.git.generalassemb.ly/user/11649/files/78e5b020-a6c2-11e8-9538-52b355dead1f)
+
+![img_4524](https://media.git.generalassemb.ly/user/11649/files/8de13742-a6c2-11e8-911d-cbb8ddec0979)
 
 ## PROCESS:
 The process of building this app was challenging to say the least. Having had no hands-on experience with ReactJS prior to this, I knew that building a custom frontend would not be easy. The decision to use ReactJS was also especially challenging because it really forced me out of my programming comfort-zone. Prior to this project, my tendency was always to opt for very static HTML structures that were manipulated though JQuery and CSS. The idea of a dynamically rendered UI based on DOM/virtualDOM manipulation seemed very foreign to me.
@@ -56,5 +59,5 @@ Whilst i had a theoretical understanding of the top-down flow of data through a 
 * https://kapeli.com/cheat_sheets/Axios.docset/Contents/Resources/Documents/index
 
 ## FUTURE ITERATIONS:
-* make the UI responsive.
+* make the UI responsive. Maybe use some material UI elements.
 * implement a 3rd party API to allow a user to search out wine scores
