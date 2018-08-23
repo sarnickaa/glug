@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { apiUrl } from '../server.js'
+import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+
 
 import "./WineForm.css";
+import MyModal from "./MyModal.js"
 
 export default class WineForm extends Component {
 
@@ -14,6 +17,10 @@ export default class WineForm extends Component {
   cancelCourse = () => {
     document.getElementById("wine-input-form").reset();
   }
+
+  openModal(text, data) {
+        ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
+     }
 
   handleWineDataSubmit = e => {
     e.preventDefault()
@@ -40,10 +47,12 @@ export default class WineForm extends Component {
           console.log('wine added')
         })
         .then(this.props.wineRequest)
+        .then(this.openModal.bind(null, "yay! wine added!"))
         .then(this.cancelCourse)
         .catch((error) => {
           console.log(error)
         })
+        .catch(this.openModal.bind(null, "Oops! something went wrong!"))
     }
 
     if (this.props.action === 'Update') {
@@ -54,10 +63,12 @@ export default class WineForm extends Component {
         })
         .then(this.cancelCourse)
         .then(this.props.wineRequest)
+        .then(this.openModal.bind(null, "yay! wine updated!"))
         .then(this.props.setCurrentFormWineID(null))
         .catch((error) => {
           console.log(error)
         })
+        .catch(this.openModal.bind(null, "Oops! something went wrong!"))
     }
   }
 

@@ -1,7 +1,9 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { apiUrl } from '../server.js'
+import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
 
+import MyModal from "./MyModal.js"
 import ChangePWForm from './ChangePWForm.js'
 import WineForm from './WineForm.js'
 import WineList from './WineList.js'
@@ -26,6 +28,10 @@ export default class Main extends Component {
     this.setState({currentFormWineID: id})
   }
 
+  openModal(text, data) {
+        ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
+     }
+
   getAllWines = () => {
     // get wine data for signed in user: populate wines array
     // push wine data into wines array in state
@@ -37,7 +43,7 @@ export default class Main extends Component {
     })
       .then((result) => {
         // console.log(result)
-        this.setState({ wines: result.data.wines })
+        this.setState({ wines: result.data.wines.reverse() })
         // setState with result of axios call
         // console.log(this.state.wines)
       })
@@ -72,6 +78,7 @@ export default class Main extends Component {
           pathname: '/'
         })
       })
+      .then(this.openModal.bind(null, "Bye! Thanks for using GLUG!"))
       .catch((error) => {
         console.log(error)
       })

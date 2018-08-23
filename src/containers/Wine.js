@@ -1,7 +1,9 @@
 import React from 'react';
 import axios from 'axios';
 import { apiUrl } from '../server.js'
+import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
 
+import MyModal from "./MyModal.js"
 import './Wine.css'
 
 const Wine = props => {
@@ -9,6 +11,10 @@ const Wine = props => {
   const clickUpdateHandler = e => {
     props.setCurrentFormWineID(props._id)
   }
+
+  const openModal = (text, data) => {
+        ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
+     }
 
   const handleDeleteWine = e => {
     e.preventDefault()
@@ -20,6 +26,7 @@ const Wine = props => {
         console.log(result)
         console.log('wine deleted')
       })
+      .then(openModal.bind(null, "bye bye wine!"))
       .then(props.wineRequest)
       // triggers axios GET request to re-render the users wine collection
       .catch((error) => {
