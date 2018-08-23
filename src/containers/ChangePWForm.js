@@ -9,14 +9,13 @@ export default class ChangePWForm extends Component {
 
   constructor(props) {
     super()
-    console.log(props)
-    console.log(props.token)
+    // console.log(props)
+    // console.log(props.token)
     this.state = {
       oldp: '',
       newp: '',
       token: props.token
     }
-    // this.userChangePW = this.userChangePW.bind(this)
   }
 
 
@@ -30,13 +29,12 @@ export default class ChangePWForm extends Component {
     this.setState(state)
   }
 
-// form submission: sends the current state as the params for signup
+// form submission: sends the current state as the params for change password
 // submission button fires off axios call
-
   onSubmit = (e) => {
     e.preventDefault()
     const { oldp, newp } = this.state;
-    console.log(this.state)
+    // console.log(this.state)
     this.userChangePW()
   }
 
@@ -49,15 +47,15 @@ export default class ChangePWForm extends Component {
   // https://stackoverflow.com/questions/43922508/clear-and-reset-form-input-fields/43922523
 
   userChangePW = (e) => {
-    console.log(this.state.token)
+    // console.log(this.state.token)
     const { oldp, newp } = this.state
-    console.log(oldp)
-    console.log(newp)
+    // console.log(oldp)
+    // console.log(newp)
     axios.patch('http://localhost:4741/change-password', { oldp, newp }, { headers: {
       Authorization: `Bearer ${this.state.token}` } })
         .then((result) => {
-          console.log(result)
-          console.log('user changed password')
+          // console.log(result)
+          // console.log('user changed password')
           })
         .then(this.clearControlledFields)
         .then(this.openModal.bind(null, "Success! Password Changed!"))

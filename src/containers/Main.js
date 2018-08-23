@@ -5,43 +5,40 @@ import ChangePWForm from './ChangePWForm.js'
 import WineForm from './WineForm.js'
 import WineList from './WineList.js'
 
-
 export default class Main extends Component {
 
   constructor(props) {
-    console.log(props)
+    // console.log(props)
     super(props)
     this.state = {
       token: null,
       wines: [],
       currentFormWineID: null
     }
-    // this.addWine = this.addWine.bind(this)
   }
 
-  // clearFormFields = (elemId) => {
-  //   document.getElementById(elemId).reset();
-  // }
-
+// do not need to bind to state as it is an ES6 function
+// this function will set the wine ID on the form when UPDATE is selected
+// it is passed as a prop to <WineForm /> it lives here as this is its 'parent' component
+// it holds all the state needed for WineForm to function
   setCurrentFormWineID = (id) => {
     this.setState({currentFormWineID: id})
   }
 
   getAllWines = () => {
+    // get wine data for signed in user: populate wines array
+    // push wine data into wines array in state
+    // this function runs immediatly after successful login to READ a users collection
     axios.get('http://localhost:4741/wines', {
       headers: {
         Authorization: `Bearer ${this.state.token}`
       }
     })
       .then((result) => {
-        console.log(result)
-        // check result
-
+        // console.log(result)
         this.setState({ wines: result.data.wines })
         // setState with result of axios call
-
-        console.log(this.state.wines)
-        // check updates state
+        // console.log(this.state.wines)
       })
       .catch((error) => {
         console.log(error)
@@ -51,19 +48,11 @@ export default class Main extends Component {
 
 
   componentDidMount(props) {
-    // get wine data for signed in user: populate wines array
-    // push wine data into wines array in state
-
-    //ramda https://ramdajs.com/docs/#sort
+    //ramda https://ramdajs.com/docs/#sort - look into sorting user wine array
     const token = this.props.location.state.token
     this.setState({token}, this.getAllWines)
-
     this.props.setViewLinkState()
-
-    // // check token
-    // console.log(token)
-    //
-    // this.getAllWines(token)
+    // sets viewLinkState to null - removing visible links to login/signup
   }
 
 
@@ -75,8 +64,8 @@ export default class Main extends Component {
       }
     })
       .then((result) => {
-        console.log(result)
-        console.log('user logged out')
+        // console.log(result)
+        // console.log('user logged out')
         this.props.setViewLinkState('view')
         this.props.history.push({
           pathname: '/'
@@ -87,27 +76,12 @@ export default class Main extends Component {
       })
   }
 
-  // addWine(wine) {
-  //   // const wine =
-  //   //   text
-  //
-  //   this.setState(prevState => {
-  //     let nextState = Object.assign({}, prevState)
-  //     nextState.wines.unshift(wine)
-  //     return nextState
-  //   })
-  // }
-  //
-  // patchWine(wine) {
-  //   console.log(wine)
-  // }
-
   render() {
+  // ternary condition: if currentFormWineID is null - load the "Add" version of the form. If set to an ID load the "Update" version
     return (
       <div>
         <button type="submit" onClick={this.userLogout}>LOGOUT</button>
-        <ChangePWForm token={this.props.location.state.token}
-                      cancelCourse={this.clearFormFields}/>
+        <ChangePWForm token={this.props.location.state.token} />
         {this.state.currentFormWineID
           ? <WineForm action="Update"
             setCurrentFormWineID={this.setCurrentFormWineID}

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from 'axios';
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
-import MyModal from "./MyModal.js"
 
+import MyModal from "./MyModal.js"
 import "./Login.css";
 import Main from './Main.js'
 
@@ -22,8 +22,9 @@ export default class Login extends Component {
   openModal(text, data) {
         ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
      }
+// modal getter method
 
-// like get-form-fields: captures user input and sets it as components state
+// like get-form-fields: captures user input and sets it as this components state
   onChange = (e) => {
     const state = this.state
     state[e.target.name] = e.target.value
@@ -31,23 +32,22 @@ export default class Login extends Component {
   }
 
 // form submission: sends the current state as the params for signup
-// submission button fires off axios call
+// submission button triggers axios call
   onSubmit = (e) => {
     e.preventDefault()
     const { email, password } = this.state;
-    console.log(this.state)
+    // console.log(this.state)
 
 
     axios.post('http://localhost:4741/sign-in', { email, password })
       .then((result) => {
-        console.log(result)
-        // this.props.setLoginInfo(result.data.user.token)
+        // console.log(result)
         this.setState({
           token: result.data.user.token
         })
-        console.log(this.state.token)
-        // localStorage.setItem('token', result.data.user.token)
-        console.log(result.data.user.token)
+        // console.log(this.state.token)
+        // localStorage.setItem('token', result.data.user.token) - do not use for react apps - should be set in state and passed.
+        // console.log(result.data.user.token)
         // console.log(localStorage.getItem('token'))
         this.props.history.push({
           pathname: '/main',
@@ -55,7 +55,7 @@ export default class Login extends Component {
         })
       // https://stackoverflow.com/questions/44121069/how-to-pass-params-with-history-push-in-react-router-v4
       })
-      .catch(this.openModal.bind(null, "Oops! check your email or password!"))
+      .catch(this.openModal.bind(null, "Oops! Check your email or password!"))
       .catch((error) => {
         console.error(error)
       })

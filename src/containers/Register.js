@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
-// import Modal, {closeStyle} from 'simple-react-modal'
-import "./Register.css";
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+
+import "./Register.css";
 import MyModal from "./MyModal.js"
 
 export default class Register extends Component {
@@ -15,14 +15,6 @@ export default class Register extends Component {
       password_confirmation: ''
     }
   }
-
-  // show(){
-  //   this.setState({show: true})
-  // }
-  //
-  // close(){
-  //   this.setState({show: false})
-  // }
 
   openModal(text, data) {
         ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
@@ -43,13 +35,13 @@ export default class Register extends Component {
       .then((result) => {
         console.log(result)
         this.props.history.push('/sign-in')
+        //immediatley route to login on success
       })
       .catch(this.openModal.bind(null, "Oops! check your email or password!"))
       .catch((error) => {
-        console.error(error)
+        // console.error(error)
       })
   }
-
 
   render() {
     const { email, password, password_confirmation } = this.state
@@ -66,20 +58,6 @@ export default class Register extends Component {
           <br />
             <button type="submit" id="register-button">Register</button>
         </form>
-
-          {/* <Modal
-            className="test-class"
-            style={{background: 'red'}}
-            containerStyle={{background: 'blue'}}
-            containerClassName="test"
-            closeOnOuterClick={true}
-            show={this.state.show}
-            onClose={this.close.bind(this)}>
-
-              <a style={closeStyle} onClick={this.close.bind(this)}>X</a>
-                <div>hey</div>
-        </Modal> */}
-
       </div>
     );
   }

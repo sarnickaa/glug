@@ -18,17 +18,11 @@
 .Wine-varietal,
 .Wine-gift,
 .Wine-price,
-.Wine-score
- {
+.Wine-score {
     padding: 5px;
     justify-content: column;
 }
 
-
 .Wine-text {
-    padding-top:5px;
-}
-
-#delete-wine-button {
-  /* height: 25px; */
+    padding-top: 5px;
 }

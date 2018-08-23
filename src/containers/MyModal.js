@@ -7,6 +7,10 @@ class MyModal extends Component{
       const { text, onRequestClose } = this.props;
       const styles = {
         padding: '15px',
+        textAlign: 'center'
+      }
+      const styles2 = {
+        margin: '15px'
       }
 
       return (
@@ -14,7 +18,7 @@ class MyModal extends Component{
             onRequestClose={onRequestClose}
             effect={Effect.Newspaper}>
             <h2 style={styles}>{text}</h2>
-            <button onClick={ModalManager.close}>Close Modal</button>
+            <button style={styles2} onClick={ModalManager.close}>Close Modal</button>
          </Modal>
       );
    }

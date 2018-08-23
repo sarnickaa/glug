@@ -24,32 +24,22 @@ class App extends Component {
     return (
       <div className="App container">
             <nav>
-              <Link to="/" className="links" id="home-link">HOME</Link>
+              {/* <Link to="/" className="links" id="home-link">HOME</Link> */}
               {/* logout success should reroute user back to home page */}
-
               <Link to="/sign-up" className="links nav">register</Link>
               {/* mount Register User component */}
-
-
-              {/* <Link to={{
-                pathname: "/sign-in",
-                state: {
-                  viewLink: this.state.viewLink,
-                  setViewLinkState: this.setViewLinkState
-                }
-              }} className="links nav">login</Link> */}
-
               <Link to="/sign-in" className="links nav">login</Link>
               {/* mount Login user component */}
             </nav>
         <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
-        {/* load routes */}
+        {/* load routes and pass view state and setter method as props */}
       </div>
     );
   } else {
     return (
       <div className="App container">
             <nav>
+              {/* hide login/logout links */}
               {/* <Link to="/" className="links" id="home-link">HOME</Link> */}
               {/* logout success should reroute user back to home page */}
 
@@ -60,7 +50,7 @@ class App extends Component {
               {/* mount Login user component */}
             </nav>
         <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
-        {/* load routes */}
+        {/* load routes and pass view state and setter method as props so they're available in <Main /> */}
       </div>
     )
   }

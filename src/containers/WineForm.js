@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
-// import Modal, {closeStyle} from 'simple-react-modal'
+
 import "./WineForm.css";
 
 export default class WineForm extends Component {
@@ -9,22 +9,13 @@ export default class WineForm extends Component {
     console.log(props)
     super(props)
   }
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log(props.wines)
-  // }
-
-  // event handler for form submit
 
   cancelCourse = () => {
     document.getElementById("wine-input-form").reset();
   }
 
-
-
   handleWineDataSubmit = e => {
     e.preventDefault()
-    // const data = new FormData(e.target)
-    // console.log(data)
     const data = {
       wine: {
         name: e.target.querySelector("#name").value,
@@ -37,12 +28,11 @@ export default class WineForm extends Component {
       }
     }
 
-    console.log(data)
-    // for(let pair of data.entries()) {
-    //    console.log(pair[0]+ ', '+ pair[1]);
-    // }
+    // for FormData: for(let pair of data.entries()) {
+    //               console.log(pair[0]+ ', '+ pair[1]);}
 
     if (this.props.action === 'Add') {
+
       this.addWine(data)
         .then((result) => {
           console.log(result)
@@ -87,19 +77,6 @@ export default class WineForm extends Component {
     })
   }
 
-  //     // console.log(data)
-  //     .then((result) => {
-  //       console.log(result)
-  //       console.log('wine added')
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-  //
-  //     this.props.wineRequest(data.wine)
-  //     console.log(data.wine)
-  // }
-
   render() {
     return (
       <div>
@@ -113,7 +90,6 @@ export default class WineForm extends Component {
           </div>
 
           <div className="divide">
-            {/* <input type="text" placeholder="id" name="id"></input> */}
             <input type="text" id="name" placeholder="wine name (required)" name="name"></input>
             <br />
             <input type="text" id="varietal" placeholder="varietal (required)" name="varietal"></input>

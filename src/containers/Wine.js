@@ -19,10 +19,10 @@ const Wine = props => {
         console.log('wine deleted')
       })
       .then(props.wineRequest)
+      // triggers axios GET request to re-render the users wine collection
       .catch((error) => {
         console.log(error)
       })
-
   }
 
   return (
@@ -39,7 +39,6 @@ const Wine = props => {
         <button type="submit" id="delete-wine-button" onClick={clickUpdateHandler}>Update</button>
       </div>
       <div className="Wine-text">{props.comments}</div>
-
     </div>
   )
 }

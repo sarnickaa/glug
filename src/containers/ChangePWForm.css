@@ -4,7 +4,6 @@
     display: flex;
     justify-content: center;
     flex-direction: row;
-    /* width: 200px; */
     margin: 10px auto 10px auto;
     padding: 20px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
@@ -22,11 +21,10 @@ input {
 }
 
 button {
-  background-color: #4e2026; /* Green */
+  background-color: #4e2026;
   border: none;
   border-radius: 3px;
   color: white;
-  padding: 5px 10px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
