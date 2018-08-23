@@ -1,6 +1,7 @@
 .Register-form {
-    background-color: #843640;
-    color: white;
+    /* background-color: #843640; */
+    text-align: center;
+    color: #843640;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -14,6 +15,7 @@
   background: #e4bcc1;
   color: #843640;
   font-size: 16px;
+  margin: 20px 10px 15px;
 }
 
 label {
