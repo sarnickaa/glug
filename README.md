@@ -3,12 +3,14 @@ GLUG: A Wine Tracker
 ====================
 
 * DEPLOYED:
-API:
-CLIENT:
+===========
+* API:
+* CLIENT:
 
 * REPOSITORIES:
-API: https://github.com/sarnickaa/glug-api
-CLIENT: https://github.com/sarnickaa/glug
+===============
+* API: https://github.com/sarnickaa/glug-api
+* CLIENT: https://github.com/sarnickaa/glug
 
 ## DESCRIPTION:
 <glug screenshot>
