@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { apiUrl } from '../server.js'
 // import Modal, {closeStyle} from 'simple-react-modal'
 import "./ChangePWForm.css";
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
@@ -51,7 +52,7 @@ export default class ChangePWForm extends Component {
     const { oldp, newp } = this.state
     // console.log(oldp)
     // console.log(newp)
-    axios.patch('http://localhost:4741/change-password', { oldp, newp }, { headers: {
+    axios.patch(`${apiUrl}/change-password`, { oldp, newp }, { headers: {
       Authorization: `Bearer ${this.state.token}` } })
         .then((result) => {
           // console.log(result)

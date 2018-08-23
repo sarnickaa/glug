@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { apiUrl } from '../server.js'
 
 import ChangePWForm from './ChangePWForm.js'
 import WineForm from './WineForm.js'
@@ -29,7 +30,7 @@ export default class Main extends Component {
     // get wine data for signed in user: populate wines array
     // push wine data into wines array in state
     // this function runs immediatly after successful login to READ a users collection
-    axios.get('http://localhost:4741/wines', {
+    axios.get(`${apiUrl}/wines`, {
       headers: {
         Authorization: `Bearer ${this.state.token}`
       }
@@ -58,7 +59,7 @@ export default class Main extends Component {
 
 
   userLogout = (e) => {
-    axios.delete('http://localhost:4741/sign-out', {
+    axios.delete(`${apiUrl}/sign-out`, {
       headers: {
         Authorization: `Bearer ${this.props.location.state.token}`
       }

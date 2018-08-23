@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import { apiUrl } from '../server.js'
 
 import "./Register.css";
 import MyModal from "./MyModal.js"
@@ -31,7 +32,7 @@ export default class Register extends Component {
 
     const { email, password, password_confirmation } = this.state
 
-    axios.post('http://localhost:4741/sign-up', { email, password, password_confirmation })
+    axios.post(`${apiUrl}/sign-up`, { email, password, password_confirmation })
       .then((result) => {
         console.log(result)
         this.props.history.push('/sign-in')

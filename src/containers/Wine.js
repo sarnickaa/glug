@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import { apiUrl } from '../server.js'
+
 import './Wine.css'
 
 const Wine = props => {
@@ -11,7 +13,7 @@ const Wine = props => {
   const handleDeleteWine = e => {
     e.preventDefault()
 
-    axios.delete(`http://localhost:4741/wines/${props._id}`, { headers: {
+    axios.delete(`${apiUrl}/wines/${props._id}`, { headers: {
       Authorization: `Bearer ${props.token}` } })
       // console.log(data)
       .then((result) => {

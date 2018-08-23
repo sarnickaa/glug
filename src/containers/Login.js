@@ -6,6 +6,7 @@ import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
 import MyModal from "./MyModal.js"
 import "./Login.css";
 import Main from './Main.js'
+import { apiUrl } from '../server.js'
 
 
 export default class Login extends Component {
@@ -39,7 +40,7 @@ export default class Login extends Component {
     // console.log(this.state)
 
 
-    axios.post('http://localhost:4741/sign-in', { email, password })
+    axios.post(`${apiUrl}/sign-in`, { email, password })
       .then((result) => {
         // console.log(result)
         this.setState({

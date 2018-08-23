@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from 'axios';
+import { apiUrl } from '../server.js'
 
 import "./WineForm.css";
 
@@ -61,7 +62,7 @@ export default class WineForm extends Component {
   }
 
   addWine = (data) => {
-    return axios.post('http://localhost:4741/wines', data, {
+    return axios.post(`${apiUrl}/wines`, data, {
       headers: {
         Authorization: `Bearer ${this.props.token}`
       }
@@ -70,7 +71,7 @@ export default class WineForm extends Component {
 
   patchWine = (data) => {
     // console.log(this.props.currentFormWineID)
-    return axios.patch(`http://localhost:4741/wines/${this.props.currentFormWineID}`, data, {
+    return axios.patch(`${apiUrl}/wines/${this.props.currentFormWineID}`, data, {
       headers: {
         Authorization: `Bearer ${this.props.token}`
       }
