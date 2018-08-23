@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from 'axios';
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
 
 import MyModal from "./MyModal.js"
 import "./Login.css";
@@ -18,6 +20,13 @@ export default class Login extends Component {
       password: '',
       token: ''
     }
+  }
+
+  clearControlledFields = () => {
+    this.setState({
+      email: "",
+      password: ""
+    })
   }
 
   openModal(text, data) {
@@ -56,10 +65,12 @@ export default class Login extends Component {
         })
       // https://stackoverflow.com/questions/44121069/how-to-pass-params-with-history-push-in-react-router-v4
       })
+      .then(this.clearControlledFields)
       .catch(this.openModal.bind(null, "Oops! Check your email or password!"))
       .catch((error) => {
         console.error(error)
       })
+      .then(this.clearControlledFields)
   }
 
 
@@ -67,15 +78,17 @@ export default class Login extends Component {
     const { email, password } = this.state;
     return (
     <div>
-      <form className="Login-form" onSubmit={this.onSubmit}>
-        <label>Log In to GLUG!</label>
+    <Card className="Login-form" style={{background: 'linear-gradient(to bottom, whitesmoke 0%, #843640 100%'}}>
+      <form onSubmit={this.onSubmit}>
+        <label><h3>Log In to GLUG!</h3></label>
         <br />
           <input type="email" placeholder="your email" name="email" value={email} onChange={this.onChange}></input>
           <br />
           <input type="password" placeholder="password" name="password" value={password} onChange={this.onChange}></input>
           <br />
-            <button type="submit" id="login-button">Log In</button>
+            <Button type="submit" id="login-button">Log In</Button>
         </form>
+        </Card>
       </div>
     );
   }
