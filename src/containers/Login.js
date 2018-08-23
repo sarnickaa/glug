@@ -20,6 +20,13 @@ export default class Login extends Component {
     }
   }
 
+  clearControlledFields = () => {
+    this.setState({
+      email: "",
+      password: ""
+    })
+  }
+
   openModal(text, data) {
         ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
      }
@@ -56,10 +63,12 @@ export default class Login extends Component {
         })
       // https://stackoverflow.com/questions/44121069/how-to-pass-params-with-history-push-in-react-router-v4
       })
+      .then(this.clearControlledFields)
       .catch(this.openModal.bind(null, "Oops! Check your email or password!"))
       .catch((error) => {
         console.error(error)
       })
+      .then(this.clearControlledFields)
   }
 
 

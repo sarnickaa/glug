@@ -17,6 +17,14 @@ export default class Register extends Component {
     }
   }
 
+  clearControlledFields = () => {
+    this.setState({
+      email: "",
+      password: "",
+      password_confirmation: ""
+    })
+  }
+
   openModal(text, data) {
         ModalManager.open(<MyModal text={text} onRequestClose={() => true} />);
      }
@@ -38,10 +46,12 @@ export default class Register extends Component {
         this.props.history.push('/sign-in')
         //immediatley route to login on success
       })
+      .then(this.clearControlledFields)
       .catch(this.openModal.bind(null, "Oops! check your email or password!"))
       .catch((error) => {
         // console.error(error)
       })
+      .then(this.clearControlledFields)
   }
 
   render() {
