@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import axios from 'axios';
 import { apiUrl } from '../server.js'
+import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 // import Modal, {closeStyle} from 'simple-react-modal'
 import "./ChangePWForm.css";
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
@@ -70,15 +72,19 @@ export default class ChangePWForm extends Component {
     const { oldp, newp } = this.state;
     return (
     <div>
-      <form className="ChangePW-form" onSubmit={this.onSubmit}>
+    <Card className="ChangePW-form" style={{background: 'linear-gradient(to bottom, #243b55 0%, #843640 100%'}}>
+      <div>
+      <form onSubmit={this.onSubmit}>
         <label>Change User Password</label>
         <br />
           <input type="password" placeholder="old password" name="oldp" value={this.state.oldp} onChange={this.onChange}></input>
-          <br />
+          {/* <br /> */}
           <input type="password" placeholder="new password" name="newp" value={this.state.newp} onChange={this.onChange}></input>
-          <br />
-            <button type="submit">Change Password</button>
+          {/* <br /> */}
+            <Button type="submit" id="change-pw-button">Change Password</Button>
         </form>
+      </div>
+      </Card>
       </div>
     );
   }

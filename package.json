@@ -6,6 +6,7 @@
   "dependencies": {
     "@material-ui/core": "^1.5.1",
     "axios": "^0.18.0",
+    "material-ui-image": "^3.0.0",
     "react": "^16.4.2",
     "react-bootstrap": "^0.32.2",
     "react-dom": "^16.4.2",

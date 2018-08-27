@@ -78,7 +78,7 @@ export default class Login extends Component {
     const { email, password } = this.state;
     return (
     <div>
-    <Card className="Login-form" style={{background: 'linear-gradient(to bottom, whitesmoke 0%, #843640 100%'}}>
+    <Card className="Login-form" style={{background: 'linear-gradient(to bottom, #243b55 0%, #843640 100%'}}>
       <form onSubmit={this.onSubmit}>
         <label><h3>Log In to GLUG!</h3></label>
         <br />

@@ -2,11 +2,14 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { apiUrl } from '../server.js'
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import AppBar from '@material-ui/core/AppBar';
+import Button from '@material-ui/core/Button';
 
 import MyModal from "./MyModal.js"
 import ChangePWForm from './ChangePWForm.js'
 import WineForm from './WineForm.js'
 import WineList from './WineList.js'
+import './Main.css';
 
 export default class Main extends Component {
 
@@ -88,7 +91,9 @@ export default class Main extends Component {
   // ternary condition: if currentFormWineID is null - load the "Add" version of the form. If set to an ID load the "Update" version
     return (
       <div>
-        <button type="submit" onClick={this.userLogout}>LOGOUT</button>
+      <AppBar position="sticky" className="background" id="mainApp">
+        <Button type="submit" id="logout-button" onClick={this.userLogout}>LOGOUT</Button>
+      </AppBar>
         <ChangePWForm token={this.props.location.state.token} />
         {this.state.currentFormWineID
           ? <WineForm action="Update"

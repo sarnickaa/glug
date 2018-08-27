@@ -25,7 +25,7 @@ class App extends Component {
     if(this.state.viewLink === 'view') {
     return (
       <div className="App container">
-        <AppBar position="sticky" color="default" >
+        <AppBar position="sticky" className="background">
             <nav>
               {/* <Link to="/" className="links" id="home-link">HOME</Link> */}
               {/* logout success should reroute user back to home page */}

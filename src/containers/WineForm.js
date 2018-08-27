@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { apiUrl } from '../server.js'
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import Card from '@material-ui/core/Card';
 
 
 import "./WineForm.css";
@@ -92,7 +93,8 @@ export default class WineForm extends Component {
   render() {
     return (
       <div>
-        <form id="wine-input-form" className="AddWine-form" onSubmit={this.handleWineDataSubmit}>
+        <Card className="AddWine-form" style={{background: 'linear-gradient(to bottom, #243b55 0%, #843640 100%'}}>
+        <form id="wine-input-form" onSubmit={this.handleWineDataSubmit}>
           <div id="label">
             <label>{this.props.action === "Add"
               ? this.props.prefix
@@ -126,6 +128,7 @@ export default class WineForm extends Component {
             <button type="submit" id="wine-form-button">{this.props.action}</button>
           </div>
         </form>
+      </Card>
       </div>
     );
   }
