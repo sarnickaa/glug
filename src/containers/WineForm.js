@@ -3,6 +3,7 @@ import axios from 'axios';
 import { apiUrl } from '../server.js'
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
 import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
 
 
 import "./WineForm.css";
@@ -125,7 +126,7 @@ export default class WineForm extends Component {
           <br />
 
           <div className="divide">
-            <button type="submit" id="wine-form-button">{this.props.action}</button>
+            <Button type="submit" id="wine-form-button">{this.props.action}</Button>
           </div>
         </form>
       </Card>

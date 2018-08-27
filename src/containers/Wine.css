@@ -1,5 +1,5 @@
 .Wine-div {
-    width: 450px;
+    max-width: 450px;
     background-color: #c77781;
     padding: 10px;
     margin: 0 auto 20px auto;

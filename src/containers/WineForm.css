@@ -35,5 +35,8 @@ button {
 }
 
 #wine-form-button {
-  padding: 15px 32px;
+  background: #e4bcc1;
+  color: #843640;
+  font-size: 16px;
+  margin: 20px 10px 15px;
 }
