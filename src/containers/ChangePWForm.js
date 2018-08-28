@@ -73,7 +73,7 @@ export default class ChangePWForm extends Component {
     const { oldp, newp } = this.state;
     return (
     <div>
-    <Card className="ChangePW-form" style={{background: 'linear-gradient(to bottom, #243b55 0%, #843640 100%'}}>
+    <Card className="ChangePW-form" style={{background: 'linear-gradient(to bottom, #ff9a9e 0%, #843640 100%'}}>
       <div>
       <form onSubmit={this.onSubmit}>
         <label>Change User Password</label>

@@ -95,7 +95,7 @@ export default class WineForm extends Component {
   render() {
     return (
       <div>
-        <Card className="AddWine-form" style={{background: 'linear-gradient(to bottom, #243b55 0%, #843640 100%'}}>
+        <Card className="AddWine-form" style={{background: 'linear-gradient(to bottom, #ff9a9e 0%, #843640 100%'}}>
         <form id="wine-input-form" onSubmit={this.handleWineDataSubmit}>
           <div id="label">
             <label>{this.props.action === "Add"
