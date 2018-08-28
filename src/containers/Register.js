@@ -61,7 +61,7 @@ export default class Register extends Component {
     const { email, password, password_confirmation } = this.state
     return (
     <div>
-      <Card className="Register-form" style={{background: 'linear-gradient(to bottom, #243b55 0%, #843640 100%'}}>
+      <Card className="Register-form" style={{background: 'linear-gradient(to bottom, #ff9a9e 0%, #843640 100%'}}>
       <form onSubmit={this.onSubmit}>
         <label><h3>Sign Up for GLUG!</h3></label>
         <br />
