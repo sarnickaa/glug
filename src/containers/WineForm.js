@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { apiUrl } from '../server.js'
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import Card from '@material-ui/core/Card';
+import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 
 
 import "./WineForm.css";
@@ -92,7 +95,8 @@ export default class WineForm extends Component {
   render() {
     return (
       <div>
-        <form id="wine-input-form" className="AddWine-form" onSubmit={this.handleWineDataSubmit}>
+        <Card className="AddWine-form" style={{background: 'linear-gradient(to bottom, #ff9a9e 0%, #843640 100%'}}>
+        <form id="wine-input-form" onSubmit={this.handleWineDataSubmit}>
           <div id="label">
             <label>{this.props.action === "Add"
               ? this.props.prefix
@@ -102,30 +106,32 @@ export default class WineForm extends Component {
           </div>
 
           <div className="divide">
-            <input type="text" id="name" placeholder="wine name (required)" name="name"></input>
+            <TextField type="text" margin="normal" id="name" label="name-required" name="name"></TextField>
             <br />
-            <input type="text" id="varietal" placeholder="varietal (required)" name="varietal"></input>
+            <TextField type="text" margin="normal" id="varietal" label="varietal-required" name="varietal"></TextField>
             <br />
-            <input type="text" id="year" placeholder="vintage (required)" name="year"></input>
+            <TextField type="text" margin="normal" id="year" label="vintage-required" name="year"></TextField>
             <br />
           </div>
 
           <div className="divide">
 
-            <input type="text" id="gift" placeholder="was this a gift?" name="gift"></input>
+            <TextField type="text" margin="normal" id="gift" label="was this a gift?" name="gift"></TextField>
             <br />
-            <input type="text" id="price" placeholder="price" name="price"></input>
+            <TextField type="text" margin="normal" id="price" label="price $" name="price"></TextField>
             <br />
-            <input type="text" id="score" placeholder="score /10" name="score"></input>
-            <br />
+            <TextField type="text" margin="normal" id="score" label="score out of 10" name="score"></TextField>
           </div>
-          <textarea type="textarea" id="comments" maxLength="140"  placeholder="comments" name="comments"></textarea>
+          <div>
+          <TextField multiline rows="2" rowsMax="4" margin="normal" id="comments" maxLength="140" label="comments" name="comments"></TextField>
           <br />
+        </div>
 
           <div className="divide">
-            <button type="submit" id="wine-form-button">{this.props.action}</button>
+            <Button type="submit" id="wine-form-button">{this.props.action}</Button>
           </div>
         </form>
+      </Card>
       </div>
     );
   }

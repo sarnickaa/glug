@@ -1,19 +1,21 @@
 .Login-form {
     background-color: #843640;
-    color: white;
+    color: whitesmoke;
+    text-align: center;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 200px;
+    max-width: 200px;
     margin: 10px auto 10px auto;
     padding: 20px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
 #login-button {
-  background: #e4bcc1;
-  color: #843640;
+  background: #243b55;
+  color: #e4bcc1;
   font-size: 16px;
+  margin: 20px 10px 15px;
 }
 
 label {

@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
+import AppBar from '@material-ui/core/AppBar';
+
 
 import './App.css';
 import Routes from "./Routes";
@@ -23,6 +25,7 @@ class App extends Component {
     if(this.state.viewLink === 'view') {
     return (
       <div className="App container">
+        <AppBar position="sticky" className="background">
             <nav>
               {/* <Link to="/" className="links" id="home-link">HOME</Link> */}
               {/* logout success should reroute user back to home page */}
@@ -31,6 +34,7 @@ class App extends Component {
               <Link to="/sign-in" className="links nav">login</Link>
               {/* mount Login user component */}
             </nav>
+          </AppBar>
         <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
         {/* load routes and pass view state and setter method as props */}
       </div>

@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
 import axios from 'axios';
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import TextField from '@material-ui/core/TextField';
 
 import MyModal from "./MyModal.js"
 import "./Login.css";
@@ -76,15 +79,17 @@ export default class Login extends Component {
     const { email, password } = this.state;
     return (
     <div>
-      <form className="Login-form" onSubmit={this.onSubmit}>
-        <label>Log In to GLUG!</label>
+    <Card className="Login-form" style={{background: 'linear-gradient(to bottom, #ff9a9e 0%, #843640 100%'}}>
+      <form onSubmit={this.onSubmit}>
+        <label><h3>Log In to GLUG!</h3></label>
         <br />
-          <input type="email" placeholder="your email" name="email" value={email} onChange={this.onChange}></input>
+          <TextField type="email" label="email" placeholder="your email" name="email" value={email} onChange={this.onChange}></TextField>
           <br />
-          <input type="password" placeholder="password" name="password" value={password} onChange={this.onChange}></input>
+          <TextField type="password" label="password" placeholder="password" name="password" value={password} onChange={this.onChange}></TextField>
           <br />
-            <button type="submit" id="login-button">Log In</button>
+            <Button type="submit" id="login-button">Log In</Button>
         </form>
+        </Card>
       </div>
     );
   }

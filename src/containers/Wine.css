@@ -1,5 +1,5 @@
 .Wine-div {
-    width: 450px;
+    max-width: 450px;
     background-color: #c77781;
     padding: 10px;
     margin: 0 auto 20px auto;
@@ -25,4 +25,17 @@
 
 .Wine-text {
     padding-top: 5px;
+    color: #e4bcc1;
+}
+
+#delete-wine-button {
+    background: #e4bcc1;
+    color: #843640;
+    font-size: 16px;
+    margin: 20px 10px 15px;
+    /* width: 15%; */
+}
+
+#wineid {
+  font-size: 10px;
 }

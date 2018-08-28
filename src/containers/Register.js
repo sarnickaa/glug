@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
 import { apiUrl } from '../server.js'
+import Button from '@material-ui/core/Button';
+import Card from '@material-ui/core/Card';
+import TextField from '@material-ui/core/TextField';
 
 import "./Register.css";
 import MyModal from "./MyModal.js"
@@ -58,17 +61,19 @@ export default class Register extends Component {
     const { email, password, password_confirmation } = this.state
     return (
     <div>
-      <form className="Register-form" onSubmit={this.onSubmit}>
-        <label>Sign Up for GLUG!</label>
+      <Card className="Register-form" style={{background: 'linear-gradient(to bottom, #ff9a9e 0%, #843640 100%'}}>
+      <form onSubmit={this.onSubmit}>
+        <label><h3>Sign Up for GLUG!</h3></label>
         <br />
-          <input type="email" placeholder="your email" name="email" value={email} onChange={this.onChange}></input>
+            <TextField type="email" label="email" placeholder="your email" name="email" value={email} onChange={this.onChange}></TextField>
           <br />
-          <input type="password" placeholder="password" name="password" value={password} onChange={this.onChange}></input>
+          <TextField type="password" label="password" placeholder="password" name="password" value={password} onChange={this.onChange}></TextField>
           <br />
-          <input type="password" placeholder="confirm password" name="password_confirmation" value={password_confirmation} onChange={this.onChange}></input>
+          <TextField type="password" label="confirm password" placeholder="confirm password" name="password_confirmation" value={password_confirmation} onChange={this.onChange}></TextField>
           <br />
-            <button type="submit" id="register-button">Register</button>
+            <Button type="submit" id="register-button">Register</Button>
         </form>
+      </Card>
       </div>
     );
   }

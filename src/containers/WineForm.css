@@ -1,13 +1,16 @@
   .AddWine-form {
-    background-color: #963e48;
     color: white;
     display: flex;
     justify-content: center;
     flex-direction: row;
+    max-width: 600px;
     /* width: 600px; */
     margin: 10px auto 10px auto;
     padding: 20px;
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+.divide {
+  display: inline-block;
 }
 
 label {
@@ -31,11 +34,9 @@ button {
   margin: 10px;
 }
 
-label {
-  margin: 10px;
-  padding: 5px;
-}
-
 #wine-form-button {
-  padding: 15px 32px;
+  background: #243b55;
+  color: #e4bcc1;
+  font-size: 16px;
+  margin: 20px 10px 15px;
 }

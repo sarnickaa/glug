@@ -17,3 +17,7 @@
 .nav {
   float: right;
 }
+
+.background {
+  background: linear-gradient(45deg, #722F37 30%, #243b55 90%)
+}

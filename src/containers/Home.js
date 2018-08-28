@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+// import image from "material-ui-image"
 
 import "./Home.css";
 import Logo from '../images/glug-logo.png'
@@ -9,7 +10,7 @@ export default class Home extends Component {
     return (
       <div className="Home">
         <div className="lander">
-          <img src={Logo} />
+          <img className="responsive" src={Logo} />
         </div>
       </div>
     );
