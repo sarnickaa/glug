@@ -4,6 +4,7 @@ import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
 import { apiUrl } from '../server.js'
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
+import TextField from '@material-ui/core/TextField';
 
 import "./Register.css";
 import MyModal from "./MyModal.js"
@@ -64,11 +65,11 @@ export default class Register extends Component {
       <form onSubmit={this.onSubmit}>
         <label><h3>Sign Up for GLUG!</h3></label>
         <br />
-          <input type="email" placeholder="your email" name="email" value={email} onChange={this.onChange}></input>
+            <TextField type="email" label="email" placeholder="your email" name="email" value={email} onChange={this.onChange}></TextField>
           <br />
-          <input type="password" placeholder="password" name="password" value={password} onChange={this.onChange}></input>
+          <TextField type="password" label="password" placeholder="password" name="password" value={password} onChange={this.onChange}></TextField>
           <br />
-          <input type="password" placeholder="confirm password" name="password_confirmation" value={password_confirmation} onChange={this.onChange}></input>
+          <TextField type="password" label="confirm password" placeholder="confirm password" name="password_confirmation" value={password_confirmation} onChange={this.onChange}></TextField>
           <br />
             <Button type="submit" id="register-button">Register</Button>
         </form>

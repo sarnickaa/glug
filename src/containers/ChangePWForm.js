@@ -3,6 +3,7 @@ import axios from 'axios';
 import { apiUrl } from '../server.js'
 import Card from '@material-ui/core/Card';
 import Button from '@material-ui/core/Button';
+import TextField from '@material-ui/core/TextField';
 // import Modal, {closeStyle} from 'simple-react-modal'
 import "./ChangePWForm.css";
 import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
@@ -77,9 +78,9 @@ export default class ChangePWForm extends Component {
       <form onSubmit={this.onSubmit}>
         <label>Change User Password</label>
         <br />
-          <input type="password" placeholder="old password" name="oldp" value={this.state.oldp} onChange={this.onChange}></input>
+          <TextField type="password" margin="normal" label="old password" placeholder="old password" name="oldp" value={this.state.oldp} onChange={this.onChange}></TextField>
           {/* <br /> */}
-          <input type="password" placeholder="new password" name="newp" value={this.state.newp} onChange={this.onChange}></input>
+          <TextField type="password" margin="normal" label="new password" placeholder="new password" name="newp" value={this.state.newp} onChange={this.onChange}></TextField>
           {/* <br /> */}
             <Button type="submit" id="change-pw-button">Change Password</Button>
         </form>
