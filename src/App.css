@@ -18,6 +18,20 @@
   float: right;
 }
 
+#gallery {
+  position: fixed;
+  top: 10px;
+  z-index: 1000;
+  left: 90vw;
+}
+
 .background {
-  background: linear-gradient(45deg, #722F37 30%, #243b55 90%)
+  background: linear-gradient(45deg, #722F37 30%, #243b55 90%);
+  z-index: 999;
+}
+
+@media only screen and (max-width: 375px) {
+  #gallery {
+    left: 75vw;
+  }
 }

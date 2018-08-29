@@ -7,6 +7,6 @@
   width: 15%;
 }
 
-/* #mainApp {
-  margin-bottom: 100px;
-} */
+#mainApp {
+  z-index: 999;
+}

@@ -42,7 +42,10 @@ class App extends Component {
   } else {
     return (
       <div className="App container">
+        {/* <AppBar position="sticky" className="background"> */}
             <nav>
+              <Link to="/gallery" className="links nav" id="gallery" >Gallery</Link>
+
               {/* hide login/logout links */}
               {/* <Link to="/" className="links" id="home-link">HOME</Link> */}
               {/* logout success should reroute user back to home page */}
@@ -53,6 +56,7 @@ class App extends Component {
               {/* <Link to="/sign-in" className="links nav">login</Link> */}
               {/* mount Login user component */}
             </nav>
+            {/* </AppBar> */}
         <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
         {/* load routes and pass view state and setter method as props so they're available in <Main /> */}
       </div>

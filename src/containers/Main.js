@@ -93,7 +93,7 @@ export default class Main extends Component {
     return (
       <div>
       <AppBar position="sticky" className="background" id="mainApp">
-        <Button type="submit" id="logout-button" onClick={this.userLogout}>LOGOUT</Button>
+        <Button type="submit" id="logout-button" onClick={this.userLogout}>X</Button>
       </AppBar>
         <ChangePWForm token={this.props.location.state.token} />
         {this.state.currentFormWineID
