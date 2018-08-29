@@ -40,7 +40,11 @@ export default class Login extends Component {
     const state = this.state
     state[e.target.name] = e.target.value
     this.setState(state)
+    this.props.setLoggedInEmail(this.state.email)
+    // console.log(this.state.email)
+    // console.log(this.props.getLoggedInEmail())
   }
+
 
 // form submission: sends the current state as the params for signup
 // submission button triggers axios call

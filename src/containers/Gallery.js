@@ -21,14 +21,22 @@ export default class Gallery extends Component {
     // console.log(props)
     super(props)
     this.state = {
-      gallery: []
+      gallery: [],
+      email: this.props.getLoggedInEmail()
     }
   }
 
 
+
   componentDidMount() {
-     // Request for images tagged xmas
-     axios.get('https://res.cloudinary.com/dcegqfaze/image/list/test.json')
+
+
+      // let userEmail = this.props.getLoggedInEmail()
+      // this.setState({email: userEmail})
+      console.log(this.state.email)
+
+     // Request for images tagged test
+     axios.get(`https://res.cloudinary.com/dcegqfaze/image/list/${this.state.email}.json`)
          .then(res => {
              console.log(res.data.resources);
              this.setState({gallery: res.data.resources});
@@ -41,7 +49,7 @@ export default class Gallery extends Component {
 // must be aliased at this point because openUploadWidget takes an annoymous callback that would change the context of 'this'
 
     // https://stackoverflow.com/questions/47287916/cloudinary-widget-use-in-react
-      window.cloudinary.openUploadWidget({ cloud_name: 'dcegqfaze', upload_preset: 'esunn7gq', tags:['test']},
+      window.cloudinary.openUploadWidget({ cloud_name: 'dcegqfaze', upload_preset: 'esunn7gq', tags:[`${this.state.email}`]},
           function(error, result) {
               console.log(result);
               _this.setState({gallery: _this.state.gallery.concat(result)})

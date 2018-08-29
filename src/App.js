@@ -13,12 +13,21 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      viewLink: 'view'
+      viewLink: 'view',
+      loggedInEmail: 'hihi'
     }
   }
 
   setViewLinkState = (newState) => {
     this.setState({viewLink: newState})
+  }
+
+  setLoggedInEmail = (email) => {
+    this.setState({loggedInEmail: email})
+  }
+
+  getLoggedInEmail = () => {
+    return this.state.loggedInEmail
   }
 
   render() {
@@ -35,7 +44,7 @@ class App extends Component {
               {/* mount Login user component */}
             </nav>
           </AppBar>
-        <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
+        <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} setLoggedInEmail={this.setLoggedInEmail} getLoggedInEmail={this.getLoggedInEmail} />
         {/* load routes and pass view state and setter method as props */}
       </div>
     );
@@ -57,7 +66,7 @@ class App extends Component {
               {/* mount Login user component */}
             </nav>
             {/* </AppBar> */}
-        <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} />
+        <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} setLoggedInEmail={this.setLoggedInEmail} getLoggedInEmail={this.getLoggedInEmail} />
         {/* load routes and pass view state and setter method as props so they're available in <Main /> */}
       </div>
     )
