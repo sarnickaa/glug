@@ -8,6 +8,10 @@ import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
 // import TextField from '@material-ui/core/TextField';
 
 
+// Cloudinary Tutorial Used:
+// https://cloudinary.com/blog/how_to_build_an_image_library_with_react_cloudinary
+
+
 import "./Gallery.css";
 // import MyModal from "./MyModal.js"
 
@@ -34,6 +38,7 @@ export default class Gallery extends Component {
   uploadWidget() {
     let _this = this
 // https://www.sitepoint.com/bind-javascripts-this-keyword-react/
+// must be aliased at this point because openUploadWidget takes an annoymous callback that would change the context of 'this'
 
     // https://stackoverflow.com/questions/47287916/cloudinary-widget-use-in-react
       window.cloudinary.openUploadWidget({ cloud_name: 'dcegqfaze', upload_preset: 'esunn7gq', tags:['test']},
