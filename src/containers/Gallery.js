@@ -28,7 +28,7 @@ export default class Gallery extends Component {
 
   componentDidMount() {
       console.log(this.state.email)
-
+      // this.props.setGalleryView('newButton')
      // Request for images tagged with current users email
      axios.get(`https://res.cloudinary.com/dcegqfaze/image/list/${this.state.email}.json`)
          .then(res => {

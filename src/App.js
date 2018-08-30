@@ -30,6 +30,10 @@ class App extends Component {
     return this.state.loggedInEmail
   }
 
+  // setGalleryView = (newState) => {
+  //   this.setState({galleryView: newState})
+  // }
+
   render() {
     if(this.state.viewLink === 'view') {
     return (
@@ -49,6 +53,8 @@ class App extends Component {
       </div>
     );
   } else {
+// nested conditional for gallery button
+// if (this.state.galleryView === null) {
     return (
       <div className="App container">
         {/* <AppBar position="sticky" className="background"> */}
@@ -60,6 +66,19 @@ class App extends Component {
         {/* load routes and pass view state and setter method as props so they're available in <Main /> */}
       </div>
     )
+  // } else {
+  //   return (
+  //     <div className="App container">
+  //       {/* <AppBar position="sticky" className="background"> */}
+  //           <nav>
+  //             <Link to="/main" className="links nav" id="gallery">Main</Link>
+  //           </nav>
+  //           {/* </AppBar> */}
+  //       <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} setLoggedInEmail={this.setLoggedInEmail} getLoggedInEmail={this.getLoggedInEmail} setGalleryView={this.setGalleryView} />
+  //       {/* load routes and pass view state and setter method as props so they're available in <Main /> */}
+  //     </div>
+  //   )
+  // }
   }
   }
 }
