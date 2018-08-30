@@ -14,7 +14,7 @@ class App extends Component {
     super(props)
     this.state = {
       viewLink: 'view',
-      loggedInEmail: 'hihi'
+      loggedInEmail: null
     }
   }
 
@@ -54,16 +54,6 @@ class App extends Component {
         {/* <AppBar position="sticky" className="background"> */}
             <nav>
               <Link to="/gallery" className="links nav" id="gallery" >Gallery</Link>
-
-              {/* hide login/logout links */}
-              {/* <Link to="/" className="links" id="home-link">HOME</Link> */}
-              {/* logout success should reroute user back to home page */}
-
-              {/* <Link to="/sign-up" className="links nav">register</Link> */}
-              {/* mount Register User component */}
-
-              {/* <Link to="/sign-in" className="links nav">login</Link> */}
-              {/* mount Login user component */}
             </nav>
             {/* </AppBar> */}
         <Routes setViewLinkState={this.setViewLinkState} viewLinkState={this.state.viewLink} setLoggedInEmail={this.setLoggedInEmail} getLoggedInEmail={this.getLoggedInEmail} />

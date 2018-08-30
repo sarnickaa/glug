@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import axios from 'axios';
 import { apiUrl } from '../server.js'
 import { CloudinaryContext, Transformation, Image } from 'cloudinary-react';
-// import { Modal,ModalManager,Effect} from 'react-dynamic-modal'
-// import Card from '@material-ui/core/Card';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
 // import TextField from '@material-ui/core/TextField';
 
 
@@ -29,13 +27,9 @@ export default class Gallery extends Component {
 
 
   componentDidMount() {
-
-
-      // let userEmail = this.props.getLoggedInEmail()
-      // this.setState({email: userEmail})
       console.log(this.state.email)
 
-     // Request for images tagged test
+     // Request for images tagged with current users email
      axios.get(`https://res.cloudinary.com/dcegqfaze/image/list/${this.state.email}.json`)
          .then(res => {
              console.log(res.data.resources);
@@ -49,10 +43,14 @@ export default class Gallery extends Component {
 // must be aliased at this point because openUploadWidget takes an annoymous callback that would change the context of 'this'
 
     // https://stackoverflow.com/questions/47287916/cloudinary-widget-use-in-react
-      window.cloudinary.openUploadWidget({ cloud_name: 'dcegqfaze', upload_preset: 'esunn7gq', tags:[`${this.state.email}`]},
+      window.cloudinary.openUploadWidget({ cloud_name: 'dcegqfaze', upload_preset: 'esunn7gq', tags:[`${this.state.email}`], theme: 'minimal'},
           function(error, result) {
               console.log(result);
+              if (result === undefined) {
+                console.log('error!!')
+              } else {
               _this.setState({gallery: _this.state.gallery.concat(result)})
+            }
           });
   }
 
@@ -61,7 +59,10 @@ export default class Gallery extends Component {
   render() {
     return (
       <div>
-        <h1>Galleria</h1>
+        <h1>My Wines</h1>
+        <div className="button-div">
+          <Button onClick={this.uploadWidget.bind(this)} id="upload-button">Add Image</Button>
+        </div>
         <div className="gallery">
           <CloudinaryContext cloudName="dcegqfaze">
               {this.state.gallery.map(data => {
@@ -85,10 +86,9 @@ export default class Gallery extends Component {
                           })
                             }
             </CloudinaryContext>
-          <div>
-            <button onClick={this.uploadWidget.bind(this)}>Add Image</button>
           </div>
-        </div>
+
+
       </div>
     );
   }
