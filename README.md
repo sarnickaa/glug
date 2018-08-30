@@ -32,6 +32,22 @@ a GLUG user can:
 * change their password
 * sign out of GLUG
 
+## SETUP
+* npm install
+* Image Storage: Cloudinary
+
+### dependencies
+* material-ui/core: v1.5.1
+* axios: v0.18.0
+* cloudinary-react: v1.0.6
+* material-ui-image: v3.0.0
+* react: v16.4.2
+* react-bootstrap: 0.32.2
+* react-dom: v6.4.2
+* react-dynamic-modal: v1.1.1
+* react-router-dom: v4.3.1
+* react-scripts: v1.1.4
+
 ## PLANNING:
 
 * WIREFRAME: ![img_4522](https://media.git.generalassemb.ly/user/11649/files/78e5b020-a6c2-11e8-9538-52b355dead1f)
